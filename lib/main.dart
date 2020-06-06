@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/blocs/EventPageBloc.dart';
+import 'package:todoapp/blocs/TaskPageBloc.dart';
 import 'package:todoapp/pages/event_page.dart';
 import 'package:todoapp/pages/task_page.dart';
 
@@ -145,7 +146,9 @@ class _MyHomePageState extends State<MyHomePage> {
             color: currentView == 2 ? Colors.white : Theme.of(context).accentColor,
             textColor: currentView == 2 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
-              currentView = 2;
+              setState(() {
+                currentView = 2;
+              });
             },
             shape: RoundedRectangleBorder(
                 side: BorderSide(
