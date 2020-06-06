@@ -18,6 +18,28 @@ class AddEventView extends StatefulWidget {
 }
 
 class _AddEventViewState extends State<AddEventView> {
+
+  String selectedDate = 'Pick Date';
+  String selectedTime = 'Pick Time';
+
+  Future _pickDate() async {
+    DateTime pickDate = await showDatePicker(context: context,
+        initialDate: DateTime.now(), firstDate: DateTime.now().add(Duration(days: -365)), lastDate: DateTime.now().add(Duration(days: 365)));
+    if(pickDate != null)
+      setState(() {
+        selectedDate = pickDate.toString();
+      });
+  }
+
+  Future _pickTime() async {
+    TimeOfDay pickTime = await showTimePicker(context: context,
+        initialTime: TimeOfDay.now());
+    if(pickTime != null)
+      setState(() {
+        selectedTime = pickTime.toString();
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,17 +64,11 @@ class _AddEventViewState extends State<AddEventView> {
           SizedBox(
             height: 15,
           ),
-          FlatButton(
-            padding: EdgeInsets.zero,
-            onPressed: (){},
-            child: Row(
-              children: <Widget>[
-                Icon(Icons.date_range,color: Theme.of(context).accentColor,size: 30,),
-                SizedBox(width: 12,),
-                Text('Pick date',style: TextStyle(fontSize: 14),)
-              ],
-            ),
+          _dateTimePicker(Icons.date_range, selectedDate, _pickDate),
+          SizedBox(
+            height: 15,
           ),
+          _dateTimePicker(Icons.access_time, selectedTime, _pickTime),
           SizedBox(
             height: 24,
           ),
@@ -60,6 +76,23 @@ class _AddEventViewState extends State<AddEventView> {
         ],
       ),
     );
+  }
+
+  Widget _dateTimePicker(IconData icon, String value, VoidCallback function) {
+    return FlatButton(
+          padding: EdgeInsets.zero,
+          onPressed: function,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12.0),
+            child: Row(
+              children: <Widget>[
+                Icon(icon,color: Theme.of(context).accentColor,size: 30,),
+                SizedBox(width: 12,),
+                Text(value, style: TextStyle(fontSize: 14),)
+              ],
+            ),
+          ),
+        );
   }
 
   Widget _actionButtons(BuildContext context) {
