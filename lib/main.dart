@@ -37,23 +37,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SizedBox(
-              height: 60,
+      body: Stack(
+          children: [
+            Positioned(
+              right: 0,
+              child: Text('6', style: TextStyle(
+                  fontSize: 200, color: Color(0x10000000)
+              ),),
             ),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: _bottom(context),
-            ),
-          ],
-        ),
+            _mainContent(context),
+          ]
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
@@ -84,6 +77,71 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  SafeArea _mainContent(BuildContext context) {
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          SizedBox(
+            height: 60,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: _bottom(context),
+          ),
+          _taskUnComplete(context, 'Call Samuel about appointment'),
+          _taskUnComplete(context, 'Fix onboarding experience'),
+          _taskUnComplete(context, 'Edit API documents'),
+          _taskUnComplete(context, 'Setup user focus group'),
+          Divider(
+
+          ),
+          SizedBox(height: 16,),
+          _taskComplete(context, 'Have coffee with Sam'),
+          _taskComplete(context, 'Meet with sales'),
+        ],
+      ),
+    );
+  }
+
+  Padding _taskUnComplete(BuildContext context, String text) {
+    return Padding(
+            padding: const EdgeInsets.only(left: 20, bottom: 24),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                    Icons.radio_button_unchecked,
+                    color: Theme.of(context).accentColor,
+                  size: 20,
+                ),
+                SizedBox(width: 28,),
+                Text(text)
+              ],
+            ),
+          );
+  }
+
+  Padding _taskComplete(BuildContext context, String text) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 20, bottom: 24),
+      child: Row(
+        children: <Widget>[
+          Icon(
+            Icons.radio_button_checked,
+            color: Theme.of(context).accentColor,
+            size: 20,
+          ),
+          SizedBox(width: 28,),
+          Text(text)
+        ],
+      ),
     );
   }
 
