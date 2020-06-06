@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/widgets/custom_button.dart';
+import 'package:todoapp/widgets/custom_datetime_picker.dart';
 import 'package:todoapp/widgets/custom_textfield.dart';
 
 class Event {
@@ -64,11 +65,11 @@ class _AddEventViewState extends State<AddEventView> {
           SizedBox(
             height: 15,
           ),
-          _dateTimePicker(Icons.date_range, selectedDate, _pickDate),
+          CustomDateTimePicker(iconData: Icons.date_range, value: selectedDate, onPressed: _pickDate),
           SizedBox(
             height: 15,
           ),
-          _dateTimePicker(Icons.access_time, selectedTime, _pickTime),
+          CustomDateTimePicker(iconData: Icons.access_time, value: selectedTime, onPressed: _pickTime),
           SizedBox(
             height: 24,
           ),
