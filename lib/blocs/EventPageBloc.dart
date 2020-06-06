@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/widgets/custom_button.dart';
+import 'package:todoapp/widgets/custom_textfield.dart';
 
 class Event {
   final String time;
@@ -33,12 +34,22 @@ class _AddEventViewState extends State<AddEventView> {
           SizedBox(
             height: 24,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12)
-                ),
-                labelText: "Enter Event Name"
+          CustomTextField(labelText: "Enter Event Name"),
+          SizedBox(
+            height: 15,
+          ),
+          CustomTextField(labelText: "Enter Description"),
+          SizedBox(
+            height: 15,
+          ),
+          FlatButton(
+            onPressed: (){},
+            child: Row(
+              children: <Widget>[
+                Icon(Icons.date_range,color: Theme.of(context).accentColor,size: 30,),
+                SizedBox(width: 12,),
+                Text('Pick date',style: TextStyle(fontSize: 14),)
+              ],
             ),
           ),
           SizedBox(
