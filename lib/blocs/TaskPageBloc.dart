@@ -46,26 +46,34 @@ class _AddTaskViewState extends State<AddTaskView> {
               labelText: "Enter Task Name"
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              CustomButton(
-                onPressed: (){
-
-                },
-                buttonText: "Close",
-              ),
-              CustomButton(
-                onPressed: (){
-
-                },
-                color: Theme.of(context).accentColor,
-                buttonText: "Save",
-              )
-            ],
-          )
+          SizedBox(
+            height: 24,
+          ),
+          _actionButtons(context)
         ],
       ),
     );
+  }
+
+  Widget _actionButtons(BuildContext context) {
+    return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            CustomButton(
+              onPressed: (){
+                  Navigator.pop(context);
+              },
+              buttonText: "Close",
+            ),
+            CustomButton(
+              onPressed: (){
+                // TODO
+              },
+              color: Theme.of(context).accentColor,
+              textColor: Colors.white,
+              buttonText: "Save",
+            )
+          ],
+        );
   }
 }
