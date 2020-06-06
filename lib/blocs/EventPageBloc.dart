@@ -25,7 +25,7 @@ class _AddEventViewState extends State<AddEventView> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Center(
-            child: Text('Add new Task',style: TextStyle(
+            child: Text('Add new Event',style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16
             ),),
@@ -38,7 +38,7 @@ class _AddEventViewState extends State<AddEventView> {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12)
                 ),
-                labelText: "Enter Task Name"
+                labelText: "Enter Event Name"
             ),
           ),
           SizedBox(

@@ -87,12 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)
                   ),
-                  child: AddTaskView(),
+                  child: currentView == 1 ? AddTaskView() : AddEventView(),
                 );
               }
           );
         },
-        tooltip: 'Increment',
+        tooltip: 'Add task or event',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
