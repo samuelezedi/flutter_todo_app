@@ -84,7 +84,12 @@ class IconDecoration extends Decoration {
   @override
   BoxPainter createBoxPainter([onChanged]) {
     // TODO: implement createBoxPainter
-    return IconLine();
+    return IconLine(
+      iconSize: iconSize,
+      lineWidth: lineWidth,
+      firstData: firstData,
+      lastData: lastData
+    );
   }
   
 }
@@ -95,11 +100,18 @@ class IconLine extends BoxPainter {
   final bool firstData;
   final bool lastData;
 
+  final Paint paintLine;
+
   IconLine({
     @required double iconSize,
+    @required double lineWidth,
     @required bool firstData,
     @required bool lastData,
-  }) : this.iconSize = iconSize, this.firstData = firstData, this.lastData = lastData;
+  }) : this.iconSize = iconSize, this.firstData = firstData, this.lastData = lastData, paintLine = Paint()
+  ..color = Colors.red
+  ..strokeCap = StrokeCap.round
+  ..strokeWidth = lineWidth
+  ..style = PaintingStyle.stroke;
 
 
   @override
@@ -108,7 +120,7 @@ class IconLine extends BoxPainter {
     final leftOffset = Offset((iconSize / 2), offset.dy);
     final Offset top = configuration.size.topLeft(Offset(leftOffset.dx, 0.0));
     final Offset centerTop = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy));
-    canvas.dr
+    canvas.drawLine(top, centerTop, paintLine);
   }
   
 }
