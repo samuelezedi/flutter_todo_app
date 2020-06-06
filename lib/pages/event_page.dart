@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/blocs/EventPageBloc.dart';
 import 'package:todoapp/services/icon_decoration.dart';
 
 class EventPage extends StatefulWidget {
@@ -7,11 +8,22 @@ class EventPage extends StatefulWidget {
 }
 
 class _EventPageState extends State<EventPage> {
+
+  final List<Event> eventList = [
+    new Event('08:00' , 'Call Samuel about appointment', 'Personal', false),
+    new Event('10:00' , 'Meet with sales', 'Personal', true),
+    new Event('12:00' , 'Call Tom about appointment', 'Personal', false),
+    new Event('14:00' , 'Fix onboarding experience', 'Personal', false),
+    new Event('16:00' , 'Edit API documentation', 'Personal', false),
+    new Event('18:00' , 'set up user focus group', 'Personal', false),
+  ];
+
   @override
   Widget build(BuildContext context) {
     double iconSize = 20;
     return ListView.builder(
       padding: const EdgeInsets.all(0),
+      itemCount: eventList.length,
       itemBuilder: (context, index) {
         return Row(
           children: <Widget>[
@@ -19,8 +31,8 @@ class _EventPageState extends State<EventPage> {
               decoration: IconDecoration(
                   iconSize: iconSize,
                   lineWidth: 1,
-                  firstData: true,
-                  lastData: false),
+                  firstData: index == 0 ?? true,
+                  lastData: index == eventList.length - 1 ?? true),
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -31,7 +43,7 @@ class _EventPageState extends State<EventPage> {
                           blurRadius: 5)
                     ]),
                 child: Icon(
-                  Icons.fiber_manual_record,
+                  eventList[index].isFinish ? Icons.fiber_manual_record : Icons.radio_button_unchecked,
                   size: iconSize,
                   color: Theme.of(context).accentColor,
                 ),
