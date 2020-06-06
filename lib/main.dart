@@ -37,10 +37,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int currentView = 1;
+  double currentView = 0;
+  PageController _pageController;
+
   @override
   Widget build(BuildContext context) {
-
+    _pageController.addListener(() {
+      setState(() {
+        currentView = _pageController.page;
+      });
+    });
     return Scaffold(
       body: Stack(
           children: [
@@ -110,7 +116,11 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(24.0),
             child: _bottom(context),
           ),
-          Expanded(child: currentView == 1 ? TaskPage() : EventPage()),
+          Expanded(child:
+          PageView(
+              children: [
+            TaskPage(),
+              EventPage()])),
 
         ],
       ),
@@ -122,11 +132,11 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         Expanded(
           child: MaterialButton(
-            color: currentView == 1 ? Colors.white : Theme.of(context).accentColor,
-            textColor: currentView == 1 ? Theme.of(context).accentColor : Colors.white,
+            color: currentView == 0 ? Colors.white : Theme.of(context).accentColor,
+            textColor: currentView == 0 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
               setState(() {
-                currentView = 1;
+                currentView = 0;
               });
             },
             shape: RoundedRectangleBorder(
@@ -139,11 +149,11 @@ class _MyHomePageState extends State<MyHomePage> {
         SizedBox(width: 32,),
         Expanded(
           child: MaterialButton(
-            color: currentView == 2 ? Colors.white : Theme.of(context).accentColor,
-            textColor: currentView == 2 ? Theme.of(context).accentColor : Colors.white,
+            color: currentView == 1 ? Colors.white : Theme.of(context).accentColor,
+            textColor: currentView == 1 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
               setState(() {
-                currentView = 2;
+                currentView = 1;
               });
             },
             shape: RoundedRectangleBorder(
