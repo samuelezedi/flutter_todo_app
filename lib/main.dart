@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/pages/task_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -100,56 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(24.0),
             child: _bottom(context),
           ),
-          _taskUnComplete(context, 'Call Samuel about appointment'),
-          _taskUnComplete(context, 'Fix onboarding experience'),
-          _taskUnComplete(context, 'Edit API documents'),
-          _taskUnComplete(context, 'Setup user focus group'),
-          Divider(
-            height: 1,
-          ),
-          SizedBox(height: 16,),
-          _taskComplete(context, 'Have coffee with Sam'),
-          _taskComplete(context, 'Meet with sales'),
+          Expanded(child: TaskPage()),
+
         ],
-      ),
-    );
-  }
-
-  Widget _taskUnComplete(BuildContext context, String text) {
-    return Padding(
-            padding: const EdgeInsets.only(left: 20, bottom: 24),
-            child: Row(
-              children: <Widget>[
-                Icon(
-                    Icons.radio_button_unchecked,
-                    color: Theme.of(context).accentColor,
-                  size: 20,
-                ),
-                SizedBox(width: 28,),
-                Text(text)
-              ],
-            ),
-          );
-  }
-
-  Widget _taskComplete(BuildContext context, String text) {
-    return Container(
-      foregroundDecoration: BoxDecoration(
-        color: Color(0x60FDFDFD)
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20, top: 24),
-        child: Row(
-          children: <Widget>[
-            Icon(
-              Icons.radio_button_checked,
-              color: Theme.of(context).accentColor,
-              size: 20,
-            ),
-            SizedBox(width: 28,),
-            Text(text)
-          ],
-        ),
       ),
     );
   }
