@@ -34,9 +34,15 @@ class _AddTaskViewState extends State<AddTaskView> {
               fontSize: 16
             ),),
           ),
+          SizedBox(
+            height: 24,
+          ),
           TextFormField(
             decoration: InputDecoration(
-
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12)
+              ),
+              labelText: "Enter Task Name"
             ),
           )
         ],
