@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
@@ -31,46 +31,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-
-  }
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Column(
         children: <Widget>[
           Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
-          Row(
-            children: <Widget>[
-              MaterialButton(
-                color: Theme.of(context).accentColor,
-                textColor: Colors.white,
-                onPressed: () {
-
-                },
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                padding: EdgeInsets.all(14.0),
-                child: Text('Tasks'),
-              ),
-              MaterialButton(
-                color: Colors.white,
-                textColor: Theme.of(context).accentColor,
-                onPressed: () {
-
-                },
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                padding: EdgeInsets.all(14.0),
-                child: Text('Events'),
-              )
-            ],
-          )
+          _bottom(context),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -102,6 +71,45 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _bottom(context) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: MaterialButton(
+            color: Theme.of(context).accentColor,
+            textColor: Colors.white,
+            onPressed: () {
+
+            },
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12)
+            ),
+            padding: EdgeInsets.all(14.0),
+            child: Text('Tasks'),
+          ),
+        ),
+        SizedBox(width: 32,),
+        Expanded(
+          child: MaterialButton(
+            color: Colors.white,
+            textColor: Theme.of(context).accentColor,
+            onPressed: () {
+
+            },
+            shape: RoundedRectangleBorder(
+                side: BorderSide(
+                    color: Theme.of(context).accentColor
+                ),
+                borderRadius: BorderRadius.circular(12)
+            ),
+            padding: EdgeInsets.all(14.0),
+            child: Text('Events'),
+          ),
+        )
+      ],
     );
   }
 }
