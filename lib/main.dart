@@ -138,8 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         Expanded(
           child: MaterialButton(
-            color: currentView == 0 ? Colors.white : Theme.of(context).accentColor,
-            textColor: currentView == 0 ? Theme.of(context).accentColor : Colors.white,
+            color: currentView < 0.5 ? Colors.white : Theme.of(context).accentColor,
+            textColor: currentView < 0.5 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
               setState(() {
                 currentView = 0;
@@ -155,8 +155,8 @@ class _MyHomePageState extends State<MyHomePage> {
         SizedBox(width: 32,),
         Expanded(
           child: MaterialButton(
-            color: currentView == 1 ? Colors.white : Theme.of(context).accentColor,
-            textColor: currentView == 1 ? Theme.of(context).accentColor : Colors.white,
+            color: currentView > 0.5 ? Colors.white : Theme.of(context).accentColor,
+            textColor: currentView > 0.5 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
               setState(() {
                 currentView = 1;
