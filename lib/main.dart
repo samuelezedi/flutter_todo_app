@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,11 +37,23 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
-          _bottom(context),
-        ],
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: 60,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: _bottom(context),
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
