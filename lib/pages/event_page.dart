@@ -13,8 +13,18 @@ class _EventPageState extends State<EventPage> {
       itemBuilder: (context, index) {
         return Row(
           children: <Widget>[
-            Icon(Icons.fiber_manual_record, size: 20,
-                    color: Theme.of(context).accentColor,
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(50)),
+                boxShadow: [BoxShadow(
+                  offset: Offset(0,3),
+                  color: Color(0x20000000),
+                  blurRadius: 5
+                )]
+              ),
+              child: Icon(Icons.fiber_manual_record, size: 20,
+                      color: Theme.of(context).accentColor,
+              ),
             ),
             Container(
               width: 80,
