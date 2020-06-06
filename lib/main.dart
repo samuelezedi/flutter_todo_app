@@ -4,6 +4,7 @@ import 'package:todoapp/blocs/EventPageBloc.dart';
 import 'package:todoapp/blocs/TaskPageBloc.dart';
 import 'package:todoapp/pages/event_page.dart';
 import 'package:todoapp/pages/task_page.dart';
+import 'package:todoapp/widgets/custome_modal.dart';
 
 void main() {
   runApp(MyApp());
@@ -83,12 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
           showDialog(
               context: context,
               builder: (context) {
-                return Dialog(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)
-                  ),
-                  child: currentView == 1 ? AddTaskView() : AddEventView(),
-                );
+                return CustomModal(this.currentView);
               }
           );
         },
