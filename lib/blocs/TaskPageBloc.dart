@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/widgets/custom_button.dart';
 
 class Task {
   final String task;
@@ -44,6 +45,24 @@ class _AddTaskViewState extends State<AddTaskView> {
               ),
               labelText: "Enter Task Name"
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              CustomButton(
+                onPressed: (){
+
+                },
+                buttonText: "Close",
+              ),
+              CustomButton(
+                onPressed: (){
+
+                },
+                color: Theme.of(context).accentColor,
+                buttonText: "Save",
+              )
+            ],
           )
         ],
       ),
