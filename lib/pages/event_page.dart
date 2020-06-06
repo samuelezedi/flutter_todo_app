@@ -69,6 +69,18 @@ class _EventPageState extends State<EventPage> {
 }
 
 class IconDecoration extends Decoration {
+  final double iconSize;
+  final double lineWidth;
+  final bool firstData;
+  final bool lastData;
+
+  IconDecoration({
+    @required double iconSize,
+    @required double lineWidth,
+    @required bool firstData,
+    @required bool lastData,
+}) : this.iconSize = iconSize, this.lineWidth = lineWidth, this.firstData = firstData, this.lastData = lastData;
+
   @override
   BoxPainter createBoxPainter([onChanged]) {
     // TODO: implement createBoxPainter
@@ -78,9 +90,22 @@ class IconDecoration extends Decoration {
 }
 
 class IconLine extends BoxPainter {
+
+  final double iconSize;
+  final bool firstData;
+  final bool lastData;
+
+  IconLine({
+    @required double iconSize,
+    @required bool firstData,
+    @required bool lastData,
+  }) : this.iconSize = iconSize, this.firstData = firstData, this.lastData = lastData;
+
+
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     // TODO: implement paint
+    return
   }
   
 }
