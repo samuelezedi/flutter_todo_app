@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Todo App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
         primarySwatch: Colors.red,
-
+        fontFamily: "Montserrat",
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Padding _taskUnComplete(BuildContext context, String text) {
+  Widget _taskUnComplete(BuildContext context, String text) {
     return Padding(
             padding: const EdgeInsets.only(left: 20, bottom: 24),
             child: Row(
@@ -132,19 +132,24 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
-  Padding _taskComplete(BuildContext context, String text) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, bottom: 24),
-      child: Row(
-        children: <Widget>[
-          Icon(
-            Icons.radio_button_checked,
-            color: Theme.of(context).accentColor,
-            size: 20,
-          ),
-          SizedBox(width: 28,),
-          Text(text)
-        ],
+  Widget _taskComplete(BuildContext context, String text) {
+    return Container(
+      foregroundDecoration: BoxDecoration(
+        color: Color(0x60FDFDFD)
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, top: 24),
+        child: Row(
+          children: <Widget>[
+            Icon(
+              Icons.radio_button_checked,
+              color: Theme.of(context).accentColor,
+              size: 20,
+            ),
+            SizedBox(width: 28,),
+            Text(text)
+          ],
+        ),
       ),
     );
   }
