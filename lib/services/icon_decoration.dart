@@ -51,7 +51,7 @@ class IconLine extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     // TODO: implement paint
-    final leftOffset = Offset((iconSize / 2), offset.dy);
+    final leftOffset = Offset((iconSize / 2) + 24, offset.dy);
     final double iconSpace = iconSize / 1.5;
     final Offset top = configuration.size.topLeft(Offset(leftOffset.dx, 0.0));
     final Offset centerTop = configuration.size
@@ -59,7 +59,7 @@ class IconLine extends BoxPainter {
     final Offset centerBottom = configuration.size
         .centerLeft(Offset(leftOffset.dx, leftOffset.dy + iconSpace));
     final Offset end = configuration.size
-        .centerLeft(Offset(leftOffset.dx, (leftOffset.dy * 2)));
+        .bottomLeft(Offset(leftOffset.dx, (leftOffset.dy * 2)));
     if(!firstData)canvas.drawLine(top, centerTop, paintLine);
     if(!lastData)canvas.drawLine(centerBottom, end, paintLine);
   }

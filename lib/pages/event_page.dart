@@ -25,64 +25,67 @@ class _EventPageState extends State<EventPage> {
       padding: const EdgeInsets.all(0),
       itemCount: eventList.length,
       itemBuilder: (context, index) {
-        return Row(
-          children: <Widget>[
-            Container(
-              decoration: IconDecoration(
-                  iconSize: iconSize,
-                  lineWidth: 1,
-                  firstData: index == 0 ?? true,
-                  lastData: index == eventList.length - 1 ?? true),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(50)),
-                    boxShadow: [
-                      BoxShadow(
-                          offset: Offset(0, 3),
-                          color: Color(0x20000000),
-                          blurRadius: 5)
-                    ]),
-                child: Icon(
-                  eventList[index].isFinish ? Icons.fiber_manual_record : Icons.radio_button_unchecked,
-                  size: iconSize,
-                  color: Theme.of(context).accentColor,
-                ),
-              ),
-            ),
-            Container(
-                width: 80,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Text('08.00'),
-                )),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
+        return Padding(
+          padding: const EdgeInsets.only(left: 24, right: 24),
+          child: Row(
+            children: <Widget>[
+              Container(
+                decoration: IconDecoration(
+                    iconSize: iconSize,
+                    lineWidth: 1,
+                    firstData: index == 0 ?? true,
+                    lastData: index == eventList.length - 1 ?? true),
                 child: Container(
-                  padding: EdgeInsets.all(14.0),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      borderRadius: BorderRadius.all(Radius.circular(50)),
                       boxShadow: [
                         BoxShadow(
+                            offset: Offset(0, 3),
                             color: Color(0x20000000),
-                            blurRadius: 5,
-                            offset: Offset(0, 3))
+                            blurRadius: 5)
                       ]),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text('Coffee with Sam'),
-                      SizedBox(
-                        height: 12,
-                      ),
-                      Text('Personal')
-                    ],
+                  child: Icon(
+                    eventList[index].isFinish ? Icons.fiber_manual_record : Icons.radio_button_unchecked,
+                    size: iconSize,
+                    color: Theme.of(context).accentColor,
                   ),
                 ),
               ),
-            )
-          ],
+              Container(
+                  width: 80,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(eventList[index].time),
+                  )),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
+                  child: Container(
+                    padding: EdgeInsets.all(14.0),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color(0x20000000),
+                              blurRadius: 5,
+                              offset: Offset(0, 3))
+                        ]),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(eventList[index].task),
+                        SizedBox(
+                          height: 12,
+                        ),
+                        Text(eventList[index].desc)
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         );
       },
     );
