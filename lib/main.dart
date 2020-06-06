@@ -38,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double currentView = 0;
-  PageController _pageController;
+  PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Expanded(child:
           PageView(
+            controller: _pageController,
+              onPageChanged: (page){
+                setState(() {
+//                  currentView = page;
+                });
+              },
               children: [
             TaskPage(),
               EventPage()])),
