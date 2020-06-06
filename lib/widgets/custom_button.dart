@@ -9,13 +9,25 @@ class CustomButton extends StatelessWidget {
 
   CustomButton(
       {this.onPressed,
-      this.borderColor,
+      this.borderColor = Colors.transparent,
       this.textColor,
       this.color,
       this.buttonText});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialButton(
+      onPressed: onPressed,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+          color: borderColor
+        )
+      ),
+      color: color,
+      textColor: textColor,
+      padding: EdgeInsets.all(14),
+      child: Text(buttonText),
+    );
   }
 }
