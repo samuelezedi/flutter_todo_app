@@ -15,18 +15,25 @@ class _EventPageState extends State<EventPage> {
         return Row(
           children: <Widget>[
             Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(0, 3),
-                        color: Color(0x20000000),
-                        blurRadius: 5)
-                  ]),
-              child: Icon(
-                Icons.fiber_manual_record,
-                size: 20,
-                color: Theme.of(context).accentColor,
+              decoration: IconDecoration(
+                  iconSize: iconSize,
+                  lineWidth: 1,
+                  firstData: true,
+                  lastData: false),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(50)),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(0, 3),
+                          color: Color(0x20000000),
+                          blurRadius: 5)
+                    ]),
+                child: Icon(
+                  Icons.fiber_manual_record,
+                  size: iconSize,
+                  color: Theme.of(context).accentColor,
+                ),
               ),
             ),
             Container(
@@ -119,9 +126,10 @@ class IconLine extends BoxPainter {
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     // TODO: implement paint
     final leftOffset = Offset((iconSize / 2), offset.dy);
+    final double iconSpace = iconSize / 1.5;
     final Offset top = configuration.size.topLeft(Offset(leftOffset.dx, 0.0));
-    final Offset centerTop = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy));
-    final Offset centerBottom = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy));
+    final Offset centerTop = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy - iconSpace));
+    final Offset centerBottom = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy + iconSpace));
     final Offset end = configuration.size.centerLeft(Offset(leftOffset.dx, (leftOffset.dy * 2)));
     canvas.drawLine(top, centerTop, paintLine);
     canvas.drawLine(centerBottom, end, paintLine);
