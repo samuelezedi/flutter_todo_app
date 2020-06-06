@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/pages/event_page.dart';
 import 'package:todoapp/pages/task_page.dart';
 
 void main() {
@@ -101,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(24.0),
             child: _bottom(context),
           ),
-          Expanded(child: TaskPage()),
+          Expanded(child: EventPage()),
 
         ],
       ),

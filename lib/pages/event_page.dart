@@ -17,10 +17,25 @@ class _EventPageState extends State<EventPage> {
                     color: Theme.of(context).accentColor,
             ),
             Text('08.00'),
-            Column(
-              children: <Widget>[
-
-              ],
+            Container(
+              padding: EdgeInsets.all(14.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+                boxShadow: [BoxShadow(
+                  color: Color(0x20000000),
+                  blurRadius: 5,
+                  offset: Offset(0,3)
+                )]
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Coffee with Sam'),
+                  SizedBox(height: 12,),
+                  Text('Personal')
+                ],
+              ),
             )
           ],
         );
