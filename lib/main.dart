@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _taskUnComplete(context, 'Edit API documents'),
           _taskUnComplete(context, 'Setup user focus group'),
           Divider(
-
+            height: 1,
           ),
           SizedBox(height: 16,),
           _taskComplete(context, 'Have coffee with Sam'),
