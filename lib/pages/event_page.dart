@@ -8,6 +8,7 @@ class EventPage extends StatefulWidget {
 class _EventPageState extends State<EventPage> {
   @override
   Widget build(BuildContext context) {
+    double iconSize = 20;
     return ListView.builder(
       padding: const EdgeInsets.all(0),
       itemBuilder: (context, index) {
@@ -120,7 +121,10 @@ class IconLine extends BoxPainter {
     final leftOffset = Offset((iconSize / 2), offset.dy);
     final Offset top = configuration.size.topLeft(Offset(leftOffset.dx, 0.0));
     final Offset centerTop = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy));
+    final Offset centerBottom = configuration.size.centerLeft(Offset(leftOffset.dx, leftOffset.dy));
+    final Offset end = configuration.size.centerLeft(Offset(leftOffset.dx, (leftOffset.dy * 2)));
     canvas.drawLine(top, centerTop, paintLine);
+    canvas.drawLine(centerBottom, end, paintLine);
   }
   
 }
