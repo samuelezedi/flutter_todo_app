@@ -141,9 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: currentView < 0.5 ? Colors.white : Theme.of(context).accentColor,
             textColor: currentView < 0.5 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
-              setState(() {
-                currentView = 0;
-              });
+              _pageController.previousPage(duration: Duration(milliseconds: 500), curve: Curves.bounceInOut);
             },
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12)
@@ -158,9 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: currentView > 0.5 ? Colors.white : Theme.of(context).accentColor,
             textColor: currentView > 0.5 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
-              setState(() {
-                currentView = 1;
-              });
+              _pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.bounceInOut);
             },
             shape: RoundedRectangleBorder(
                 side: BorderSide(
