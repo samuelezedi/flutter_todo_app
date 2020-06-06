@@ -43,6 +43,7 @@ class _AddEventViewState extends State<AddEventView> {
             height: 15,
           ),
           FlatButton(
+            padding: EdgeInsets.zero,
             onPressed: (){},
             child: Row(
               children: <Widget>[
