@@ -46,7 +46,31 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
-          Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),)
+          Text('Monday', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
+          Row(
+            children: <Widget>[
+              MaterialButton(
+                color: Theme.of(context).accentColor,
+                textColor: Colors.white,
+                onPressed: () {
+
+                },
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                padding: EdgeInsets.all(14.0),
+                child: Text('Tasks'),
+              ),
+              MaterialButton(
+                color: Colors.white,
+                textColor: Theme.of(context).accentColor,
+                onPressed: () {
+
+                },
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                padding: EdgeInsets.all(14.0),
+                child: Text('Events'),
+              )
+            ],
+          )
         ],
       ),
       bottomNavigationBar: BottomAppBar(
