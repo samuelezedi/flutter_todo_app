@@ -105,7 +105,8 @@ class IconLine extends BoxPainter {
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
     // TODO: implement paint
-    return
+    final leftOffset = Offset((iconSize / 2), offset.dy);
+
   }
   
 }
