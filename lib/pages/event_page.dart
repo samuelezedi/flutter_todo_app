@@ -10,9 +10,9 @@ class EventPage extends StatefulWidget {
 class _EventPageState extends State<EventPage> {
 
   final List<Event> eventList = [
-    new Event('08:00' , 'Call Samuel about appointment', 'Personal', false),
-    new Event('10:00' , 'Meet with sales', 'Personal', true),
-    new Event('12:00' , 'Call Tom about appointment', 'Personal', false),
+    new Event('08:00' , 'Call Samuel about appointment', 'Personal', true),
+    new Event('10:00' , 'Meet with sales', 'Work', true),
+    new Event('12:00' , 'Call Tom about appointment', 'Work', false),
     new Event('14:00' , 'Fix onboarding experience', 'Personal', false),
     new Event('16:00' , 'Edit API documentation', 'Personal', false),
     new Event('18:00' , 'set up user focus group', 'Personal', false),
