@@ -39,6 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Stack(
           children: [
+            Container(
+              height: 35,
+              color: Theme.of(context).accentColor,
+            ),
             Positioned(
               right: 0,
               child: Text('6', style: TextStyle(
