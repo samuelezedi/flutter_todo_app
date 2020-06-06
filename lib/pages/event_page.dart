@@ -67,3 +67,20 @@ class _EventPageState extends State<EventPage> {
     );
   }
 }
+
+class IconDecoration extends Decoration {
+  @override
+  BoxPainter createBoxPainter([onChanged]) {
+    // TODO: implement createBoxPainter
+    return IconLine();
+  }
+  
+}
+
+class IconLine extends BoxPainter {
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
+    // TODO: implement paint
+  }
+  
+}
