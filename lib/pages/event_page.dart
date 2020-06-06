@@ -15,43 +15,46 @@ class _EventPageState extends State<EventPage> {
           children: <Widget>[
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
-                boxShadow: [BoxShadow(
-                  offset: Offset(0,3),
-                  color: Color(0x20000000),
-                  blurRadius: 5
-                )]
-              ),
-              child: Icon(Icons.fiber_manual_record, size: 20,
-                      color: Theme.of(context).accentColor,
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                  boxShadow: [
+                    BoxShadow(
+                        offset: Offset(0, 3),
+                        color: Color(0x20000000),
+                        blurRadius: 5)
+                  ]),
+              child: Icon(
+                Icons.fiber_manual_record,
+                size: 20,
+                color: Theme.of(context).accentColor,
               ),
             ),
             Container(
-              width: 80,
+                width: 80,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Text('08.00'),
-                )
-            ),
+                )),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
                 child: Container(
                   padding: EdgeInsets.all(14.0),
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                    boxShadow: [BoxShadow(
-                      color: Color(0x20000000),
-                      blurRadius: 5,
-                      offset: Offset(0,3)
-                    )]
-                  ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0x20000000),
+                            blurRadius: 5,
+                            offset: Offset(0, 3))
+                      ]),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text('Coffee with Sam'),
-                      SizedBox(height: 12,),
+                      SizedBox(
+                        height: 12,
+                      ),
                       Text('Personal')
                     ],
                   ),
