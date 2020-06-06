@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/blocs/EventPageBloc.dart';
 import 'package:todoapp/pages/event_page.dart';
 import 'package:todoapp/pages/task_page.dart';
 
@@ -34,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  int currentView = 1;
   @override
   Widget build(BuildContext context) {
 
@@ -78,7 +79,17 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-
+          showDialog(
+              context: context,
+              builder: (context) {
+                return Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: AddTaskView(),
+                );
+              }
+          );
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
@@ -102,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.all(24.0),
             child: _bottom(context),
           ),
-          Expanded(child: EventPage()),
+          Expanded(child: currentView == 1 ? TaskPage() : EventPage()),
 
         ],
       ),
@@ -114,10 +125,12 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         Expanded(
           child: MaterialButton(
-            color: Theme.of(context).accentColor,
-            textColor: Colors.white,
+            color: currentView == 1 ? Colors.white : Theme.of(context).accentColor,
+            textColor: currentView == 1 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
-
+              setState(() {
+                currentView = 1;
+              });
             },
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12)
@@ -129,10 +142,10 @@ class _MyHomePageState extends State<MyHomePage> {
         SizedBox(width: 32,),
         Expanded(
           child: MaterialButton(
-            color: Colors.white,
-            textColor: Theme.of(context).accentColor,
+            color: currentView == 2 ? Colors.white : Theme.of(context).accentColor,
+            textColor: currentView == 2 ? Theme.of(context).accentColor : Colors.white,
             onPressed: () {
-
+              currentView = 2;
             },
             shape: RoundedRectangleBorder(
                 side: BorderSide(
