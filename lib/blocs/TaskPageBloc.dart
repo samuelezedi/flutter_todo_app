@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/widgets/custom_button.dart';
+import 'package:todoapp/widgets/custom_textfield.dart';
 
 class Task {
   final String task;
@@ -38,14 +39,7 @@ class _AddTaskViewState extends State<AddTaskView> {
           SizedBox(
             height: 24,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12)
-              ),
-              labelText: "Enter Task Name"
-            ),
-          ),
+          CustomTextField(labelText: "Enter Task Name"),
           SizedBox(
             height: 24,
           ),
