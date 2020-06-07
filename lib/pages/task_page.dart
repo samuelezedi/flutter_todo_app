@@ -9,7 +9,7 @@ class TaskPage extends StatefulWidget {
 class _TaskPageState extends State<TaskPage> {
 
   Widget _taskUnComplete(String text) {
-    return GestureDetector(
+    return InkWell(
       onTap: (){
           //TODO complete the task
       },
@@ -17,7 +17,7 @@ class _TaskPageState extends State<TaskPage> {
         //TODO delete the task
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, bottom: 12, top: 12, right: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12,),
         child: Row(
           children: <Widget>[
             Icon(
@@ -39,7 +39,7 @@ class _TaskPageState extends State<TaskPage> {
           color: Color(0x60FDFDFD)
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, top: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         child: Row(
           children: <Widget>[
             Icon(
