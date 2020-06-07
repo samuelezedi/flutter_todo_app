@@ -67,6 +67,57 @@ class _TaskPageState extends State<TaskPage> {
       },
       onLongPress: (){
         //TODO delete the task
+        showDialog(context: context,
+            builder: (context){
+              return Dialog(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text('Comfirm Task Deletion',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16
+                        ),),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      Text(task.task),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          CustomButton(
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
+                            buttonText: 'Close',
+                          ),
+                          CustomButton(
+                            onPressed: (){
+
+                            },
+                            textColor: Colors.white,
+                            buttonText: 'Delete',
+                            color: Theme.of(context).accentColor,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            }
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12,),
