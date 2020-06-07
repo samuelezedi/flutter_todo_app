@@ -17,7 +17,7 @@ class _TaskPageState extends State<TaskPage> {
         //TODO delete the task
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, bottom: 24),
+        padding: const EdgeInsets.only(left: 20, bottom: 12, top: 12, right: 24),
         child: Row(
           children: <Widget>[
             Icon(
