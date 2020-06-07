@@ -11,7 +11,10 @@ class _TaskPageState extends State<TaskPage> {
   Widget _taskUnComplete(String text) {
     return GestureDetector(
       onTap: (){
-
+          //TODO complete the task
+      },
+      onLongPress: (){
+        //TODO delete the task
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20, bottom: 24),
