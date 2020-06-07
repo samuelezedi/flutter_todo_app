@@ -26,7 +26,6 @@ class AddTaskView extends StatefulWidget {
 class _AddTaskViewState extends State<AddTaskView> {
 
   String selectedDate = 'Pick Date';
-  String selectedTime = 'Pick Time';
 
   Future _pickDate() async {
     DateTime pickDate = await showDatePicker(context: context,
@@ -37,14 +36,6 @@ class _AddTaskViewState extends State<AddTaskView> {
       });
   }
 
-  Future _pickTime() async {
-    TimeOfDay pickTime = await showTimePicker(context: context,
-        initialTime: TimeOfDay.now());
-    if(pickTime != null)
-      setState(() {
-        selectedTime = pickTime.toString();
-      });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +56,6 @@ class _AddTaskViewState extends State<AddTaskView> {
           CustomTextField(labelText: "Enter Task Name"),
           SizedBox(height: 15,),
           CustomDateTimePicker(iconData: Icons.date_range, value: selectedDate, onPressed: _pickDate,),
-          CustomDateTimePicker(iconData: Icons.access_time, value: selectedTime, onPressed: _pickTime,),
           SizedBox(
             height: 24,
           ),
