@@ -12,6 +12,18 @@ class _TaskPageState extends State<TaskPage> {
     return InkWell(
       onTap: (){
           //TODO complete the task
+        showDialog(context: context,
+          builder: (context){
+            return Dialog(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text('Are you sure you want to delete this?')
+                ],
+              ),
+            );
+          }
+        );
       },
       onLongPress: (){
         //TODO delete the task
