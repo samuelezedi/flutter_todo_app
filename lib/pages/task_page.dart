@@ -15,10 +15,17 @@ class _TaskPageState extends State<TaskPage> {
         showDialog(context: context,
           builder: (context){
             return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12)
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Text('Are you sure you want to delete this?')
+                  Text('Are you sure you want to delete this?',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16
+                  ),)
                 ],
               ),
             );
