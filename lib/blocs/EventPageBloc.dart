@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:todoapp/widgets/custom_button.dart';
 import 'package:todoapp/widgets/custom_datetime_picker.dart';
 import 'package:todoapp/widgets/custom_textfield.dart';
@@ -20,7 +21,7 @@ class AddEventView extends StatefulWidget {
 
 class _AddEventViewState extends State<AddEventView> {
 
-  String selectedDate = 'Pick Date';
+  DateTime selectedDate = DateTime.now();
   String selectedTime = 'Pick Time';
 
   Future _pickDate() async {
@@ -28,7 +29,7 @@ class _AddEventViewState extends State<AddEventView> {
         initialDate: DateTime.now(), firstDate: DateTime.now().add(Duration(days: -365)), lastDate: DateTime.now().add(Duration(days: 365)));
     if(pickDate != null)
       setState(() {
-        selectedDate = pickDate.toString();
+        selectedDate = pickDate;
       });
   }
 
@@ -65,7 +66,10 @@ class _AddEventViewState extends State<AddEventView> {
           SizedBox(
             height: 15,
           ),
-          CustomDateTimePicker(iconData: Icons.date_range, value: selectedDate, onPressed: _pickDate),
+          CustomDateTimePicker(
+              iconData: Icons.date_range, 
+              value: DateFormat('dd-MM-yyyy').format(selectedDate), 
+              onPressed: _pickDate),
           SizedBox(
             height: 15,
           ),

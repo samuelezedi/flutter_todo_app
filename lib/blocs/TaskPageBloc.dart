@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:todoapp/widgets/custom_button.dart';
 import 'package:todoapp/widgets/custom_datetime_picker.dart';
 import 'package:todoapp/widgets/custom_textfield.dart';
@@ -25,14 +26,14 @@ class AddTaskView extends StatefulWidget {
 
 class _AddTaskViewState extends State<AddTaskView> {
 
-  String selectedDate = 'Pick Date';
+  DateTime selectedDate = DateTime.now();
 
   Future _pickDate() async {
     DateTime pickDate = await showDatePicker(context: context,
         initialDate: DateTime.now(), firstDate: DateTime.now().add(Duration(days: -365)), lastDate: DateTime.now().add(Duration(days: 365)));
     if(pickDate != null)
       setState(() {
-        selectedDate = pickDate.toString();
+        selectedDate = pickDate;
       });
   }
 
@@ -55,7 +56,10 @@ class _AddTaskViewState extends State<AddTaskView> {
           ),
           CustomTextField(labelText: "Enter Task Name"),
           SizedBox(height: 15,),
-          CustomDateTimePicker(iconData: Icons.date_range, value: selectedDate, onPressed: _pickDate,),
+          CustomDateTimePicker(
+            iconData: Icons.date_range,
+            value: DateFormat('dd-MM-yyyy').format(selectedDate),
+            onPressed: _pickDate,),
           SizedBox(
             height: 24,
           ),
