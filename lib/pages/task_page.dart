@@ -9,18 +9,23 @@ class TaskPage extends StatefulWidget {
 class _TaskPageState extends State<TaskPage> {
 
   Widget _taskUnComplete(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, bottom: 24),
-      child: Row(
-        children: <Widget>[
-          Icon(
-            Icons.radio_button_unchecked,
-            color: Theme.of(context).accentColor,
-            size: 20,
-          ),
-          SizedBox(width: 28,),
-          Text(text)
-        ],
+    return GestureDetector(
+      onTap: (){
+
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, bottom: 24),
+        child: Row(
+          children: <Widget>[
+            Icon(
+              Icons.radio_button_unchecked,
+              color: Theme.of(context).accentColor,
+              size: 20,
+            ),
+            SizedBox(width: 28,),
+            Text(text)
+          ],
+        ),
       ),
     );
   }
