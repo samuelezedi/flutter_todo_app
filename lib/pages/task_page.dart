@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/blocs/TaskPageBloc.dart';
+import 'package:todoapp/widgets/custom_button.dart';
 
 class TaskPage extends StatefulWidget {
   @override
@@ -18,15 +19,30 @@ class _TaskPageState extends State<TaskPage> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12)
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text('Are you sure you want to delete this?',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16
-                  ),)
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text('Comfirm Task Completion',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
+                    ),),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Text('Date'),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    CustomButton(
+                      textColor: Colors.white,
+                      buttonText: 'Complete',
+                      color: Theme.of(context).accentColor,
+                    ),
+                  ],
+                ),
               ),
             );
           }
