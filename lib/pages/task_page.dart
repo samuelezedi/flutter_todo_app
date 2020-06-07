@@ -9,7 +9,7 @@ class TaskPage extends StatefulWidget {
 
 class _TaskPageState extends State<TaskPage> {
 
-  Widget _taskUnComplete(String text) {
+  Widget _taskUnComplete(Task task) {
     return InkWell(
       onTap: (){
           //TODO complete the task
@@ -32,14 +32,31 @@ class _TaskPageState extends State<TaskPage> {
                     SizedBox(
                       height: 24,
                     ),
-                    Text('Date'),
+                    Text(task.task),
                     SizedBox(
                       height: 24,
                     ),
-                    CustomButton(
-                      textColor: Colors.white,
-                      buttonText: 'Complete',
-                      color: Theme.of(context).accentColor,
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        CustomButton(
+                          onPressed: (){
+                            Navigator.pop(context);
+                          },
+                          buttonText: 'Close',
+                        ),
+                        CustomButton(
+                          onPressed: (){
+
+                          },
+                          textColor: Colors.white,
+                          buttonText: 'Complete',
+                          color: Theme.of(context).accentColor,
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -61,7 +78,7 @@ class _TaskPageState extends State<TaskPage> {
               size: 20,
             ),
             SizedBox(width: 28,),
-            Text(text)
+            Text(task.task)
           ],
         ),
       ),
@@ -95,7 +112,7 @@ class _TaskPageState extends State<TaskPage> {
     return ListView.builder(
       itemCount: taskList.length,
         itemBuilder: (context, index){
-        return taskList[index].isFinish ? _taskComplete(taskList[index].task) : _taskUnComplete(taskList[index].task);
+        return taskList[index].isFinish ? _taskComplete(taskList[index].task) : _taskUnComplete(taskList[index]);
     });
   }
 }
